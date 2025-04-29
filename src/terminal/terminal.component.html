@@ -1,0 +1,22 @@
+<div class="terminal-container">
+    <pre class="terminal-output" [innerText]="terminalOutput"></pre>
+
+    <!-- Screen reader live region -->
+    <div
+            aria-live="polite"
+            aria-atomic="true"
+            class="sr-only"
+            [innerText]="terminalOutput">
+    </div>
+
+    <input
+            [(ngModel)]="inputText"
+            (keyup.enter)="onEnter()"
+            class="terminal-input"
+            aria-label="Terminal input"
+            autofocus
+    />
+    <select>
+        <option *ngFor="let file of files">{{ file }}</option>
+    </select>
+</div>
